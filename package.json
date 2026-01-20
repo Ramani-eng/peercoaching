@@ -1,0 +1,22 @@
+{
+  "name": "peercoaching",
+  "version": "1.0.0",
+  "private": true,
+  "packageManager": "npm@10.8.2",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "dev:client": "turbo run dev --filter=client",
+    "dev:admin": "turbo run dev --filter=admin",
+    "build:client": "turbo run build --filter=client",
+    "build:admin": "turbo run build --filter=admin"
+  },
+  "devDependencies": {
+    "turbo": "^2.7.5"
+  }
+}

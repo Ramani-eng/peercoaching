@@ -1,0 +1,346 @@
+@import "tailwindcss";
+
+:root {
+  /* Dark Neon Theme - Vibrant & Futuristic */
+  --background: #0A0E17;
+  --background-secondary: #0D1321;
+  --foreground: #FFFFFF;
+  
+  /* Glass/Frosted Cards - More visible */
+  --card: rgba(17, 25, 40, 0.75);
+  --card-elevated: rgba(22, 33, 55, 0.9);
+  --card-border: rgba(56, 189, 248, 0.2);
+  --card-border-hover: rgba(56, 189, 248, 0.4);
+  
+  /* Neon Accent Colors - Brighter & More Saturated */
+  --primary: #00FFD1;
+  --primary-dim: rgba(0, 255, 209, 0.2);
+  --primary-glow: rgba(0, 255, 209, 0.5);
+  
+  --secondary: #818CF8;
+  --secondary-dim: rgba(129, 140, 248, 0.2);
+  --secondary-glow: rgba(129, 140, 248, 0.5);
+  
+  --accent: #A78BFA;
+  --accent-dim: rgba(167, 139, 250, 0.2);
+  --accent-glow: rgba(167, 139, 250, 0.5);
+  
+  --cyan: #38BDF8;
+  --cyan-dim: rgba(56, 189, 248, 0.2);
+  --cyan-glow: rgba(56, 189, 248, 0.5);
+  
+  --pink: #F472B6;
+  --pink-dim: rgba(244, 114, 182, 0.2);
+  --pink-glow: rgba(244, 114, 182, 0.5);
+  
+  /* Status Colors - Vivid */
+  --success: #34D399;
+  --success-dim: rgba(52, 211, 153, 0.2);
+  --warning: #FBBF24;
+  --warning-dim: rgba(251, 191, 36, 0.2);
+  --error: #FB7185;
+  --error-dim: rgba(251, 113, 133, 0.2);
+  --info: #60A5FA;
+  --info-dim: rgba(96, 165, 250, 0.2);
+  
+  /* Text - High Contrast */
+  --text-primary: #FFFFFF;
+  --text-secondary: #CBD5E1;
+  --text-muted: #94A3B8;
+  --text-dim: #64748B;
+  
+  /* Borders - More visible */
+  --border: rgba(148, 163, 184, 0.15);
+  --border-light: rgba(148, 163, 184, 0.08);
+  --border-glow: rgba(56, 189, 248, 0.3);
+  
+  /* Gradients - Vibrant */
+  --gradient-primary: linear-gradient(135deg, #00FFD1 0%, #38BDF8 50%, #818CF8 100%);
+  --gradient-accent: linear-gradient(135deg, #818CF8 0%, #A78BFA 50%, #E879F9 100%);
+  --gradient-warm: linear-gradient(135deg, #FBBF24 0%, #FB7185 100%);
+  --gradient-ocean: linear-gradient(135deg, #0EA5E9 0%, #6366F1 100%);
+  --gradient-aurora: linear-gradient(135deg, #00FFD1 0%, #818CF8 50%, #F472B6 100%);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', var(--font-sans), system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Glass Card Effect */
+.glass-card {
+  background: var(--card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+}
+
+.glass-card-elevated {
+  background: var(--card-elevated);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* Neon Glow Effects */
+.glow-teal {
+  box-shadow: 0 0 20px var(--primary-glow), 0 0 40px var(--primary-glow);
+}
+
+.glow-purple {
+  box-shadow: 0 0 20px var(--accent-glow), 0 0 40px var(--accent-glow);
+}
+
+.glow-blue {
+  box-shadow: 0 0 20px var(--secondary-glow), 0 0 40px var(--secondary-glow);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 20px var(--cyan-glow), 0 0 40px var(--cyan-glow);
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-accent {
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Neon Button Glow */
+.btn-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-glow::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: var(--gradient-primary);
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+  filter: blur(12px);
+}
+
+.btn-glow:hover::before {
+  opacity: 0.6;
+}
+
+/* Progress Bar Glow */
+.progress-glow {
+  box-shadow: 0 0 10px var(--primary-glow);
+}
+
+/* Accessibility-friendly focus states */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar - Dark Theme */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Input styles - Dark Theme with Better Contrast */
+.input-dark {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 16px;
+  background: rgba(17, 25, 40, 0.8);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  border-radius: 12px;
+  color: #FFFFFF;
+  transition: all 0.3s ease;
+}
+
+.input-dark:hover {
+  border-color: rgba(56, 189, 248, 0.4);
+  background: rgba(22, 33, 55, 0.9);
+}
+
+.input-dark:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-dim), 0 0 30px var(--primary-glow);
+  background: rgba(22, 33, 55, 0.95);
+}
+
+.input-dark::placeholder {
+  color: #64748B;
+}
+
+/* Vibrant Card Styles */
+.vibrant-card {
+  background: linear-gradient(135deg, rgba(17, 25, 40, 0.9) 0%, rgba(22, 33, 55, 0.85) 100%);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(56, 189, 248, 0.15);
+  border-radius: 20px;
+  box-shadow: 
+    0 4px 30px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.vibrant-card:hover {
+  border-color: rgba(56, 189, 248, 0.3);
+  box-shadow: 
+    0 8px 40px rgba(0, 0, 0, 0.5),
+    0 0 60px rgba(56, 189, 248, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Neon Button Styles */
+.btn-neon {
+  background: var(--gradient-primary);
+  color: #0A0E17;
+  font-weight: 600;
+  padding: 14px 28px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 255, 209, 0.3);
+}
+
+.btn-neon:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 255, 209, 0.4), 0 0 60px rgba(0, 255, 209, 0.2);
+}
+
+.btn-neon:active {
+  transform: translateY(0);
+}
+
+/* Glowing Badge */
+.badge-glow {
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 500;
+  backdrop-filter: blur(12px);
+  animation: badge-pulse 2s ease-in-out infinite;
+}
+
+@keyframes badge-pulse {
+  0%, 100% { box-shadow: 0 0 10px var(--primary-glow); }
+  50% { box-shadow: 0 0 20px var(--primary-glow), 0 0 40px var(--primary-glow); }
+}
+
+/* Progress Bar Glow */
+.progress-neon {
+  height: 8px;
+  border-radius: 4px;
+  background: rgba(30, 41, 59, 0.8);
+  overflow: hidden;
+}
+
+.progress-neon-bar {
+  height: 100%;
+  background: var(--gradient-primary);
+  border-radius: 4px;
+  box-shadow: 0 0 20px var(--primary-glow);
+  transition: width 0.5s ease;
+}
+
+/* Floating Animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Shimmer Effect */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Icon Glow */
+.icon-glow {
+  filter: drop-shadow(0 0 8px var(--primary));
+}
+
+/* Ambient Background Effects */
+.ambient-glow {
+  position: fixed;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ambient-glow::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  left: -10%;
+  width: 40%;
+  height: 40%;
+  background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+  filter: blur(80px);
+}
+
+.ambient-glow::after {
+  content: '';
+  position: absolute;
+  bottom: -20%;
+  right: -10%;
+  width: 40%;
+  height: 40%;
+  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+  filter: blur(80px);
+}
